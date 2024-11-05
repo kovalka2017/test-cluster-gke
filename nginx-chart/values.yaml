@@ -1,0 +1,12 @@
+
+namespace: nginx
+nginx:
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: "latest"
+
+busybox:
+  image:
+    repository: busybox
+    tag: "latest"
