@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-nginx
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-nginx
+spec:
+  replicas: {{ .Values.nginx.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-nginx
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
+          ports:
+            - containerPort: 80
+        - image: "{{ .Values.busybox.image.repository }}:{{ .Values.busybox.image.tag }}"
+          imagePullPolicy: Always
+          name: busybox
+          command: ["sleep", "3600"]  
