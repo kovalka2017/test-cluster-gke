@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-test-gke          # Name of your application
+  namespace: default          # Namespace where Argo CD is installed
+spec:
+  project: default            # The Argo CD project this application belongs to
+  source:
+    repoURL: 'https://github.com/kovalka2017/test-cluster-gke'  # URL of your Git repository
+    targetRevision: HEAD       # Branch or tag to use
+    path: 'nginx-chart'  # Path in the repo where your manifests are located
+  destination:
+    server: 'https://kubernetes.default.svc' # Use default for the current cluster
+    namespace: nginx           # Namespace where the application will be deployed
+  syncPolicy:
+    automated:
+      prune: true              # Automatically prune resources that are no longer defined in Git
+      selfHeal: true           # Automatically sync if the live state differs from the desired state in Git
