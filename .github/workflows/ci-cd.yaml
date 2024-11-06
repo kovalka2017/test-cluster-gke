@@ -45,13 +45,13 @@ jobs:
         run: |
           sed -i "s|tag: .*|tag: "v${{ env.new_version }}"|g" nginx-chart/values.yaml
           sed -i "s|VERSION: .*|VERSION: "v${{ env.new_version }}" </p>|g" nginx-chart/index.html
-          cat values.yaml
+          cat nginx-chart/values.yaml
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git add VERSION values.yaml index.html
+          git add VERSION nginx-chart/values.yaml nginx-chart/index.html
           git commit -m "Increment version to ${{ env.new_version }}"
           git push
 
