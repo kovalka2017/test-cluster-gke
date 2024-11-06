@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Запускати CI/CD на push у main гілку
+      - main  
 
 jobs:
   build:
@@ -20,7 +20,6 @@ jobs:
       - name: Configure Docker to use gcloud as a credential helper
         run: |
           gcloud auth configure-docker
-          gcloud auth configure-docker gcr.io 
           gcloud auth configure-docker us-central1-docker.pkg.dev   
 
 
