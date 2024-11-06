@@ -58,11 +58,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t us-central1-docker.pkg.dev/yarproject-041124/nginx-test-gke
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/nginx-test-gke:latest .
           
       - name: Push Docker image to GCR
         run: |
           docker images
-          docker push us-central1-docker.pkg.dev/yarproject-041124/nginx-test-gke
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/nginx-test-gke
 
           
