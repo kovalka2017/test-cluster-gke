@@ -14,6 +14,6 @@ spec:
     app: {{ .Release.Name }}-nginx
   defaultBackend:
     service:
-      name: deployment-service # Name of the Service targeted by the Ingress
+      name: service-nginx # Name of the Service targeted by the Ingress
       port:
         number: 80 # Should match the port used by the Service
