@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx-test-gke          # Name of your application
-  namespace: nginx          # Namespace where Argo CD is installed
+  namespace: argocd          # Namespace where Argo CD is installed
 spec:
   project: default            # The Argo CD project this application belongs to
   source:
