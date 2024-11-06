@@ -4,9 +4,9 @@ nginx:
   replicaCount: 1
   image:
     repository: nginx
-    tag: "latest"
+    tag: v..1
 
 busybox:
   image:
     repository: busybox
-    tag: "latest"
+    tag: v..1
