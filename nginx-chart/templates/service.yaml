@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: service-nginx
   annotations: 
-    cloud.google.com/neg: '{"ingress": true}'
-    cloud.google.com/neg: '{"exposed_ports": {"80":{"name": "nginx-test-gke"}}}'
+    cloud.google.com/neg: '{"ingress": true, "exposed_ports": {"80": {"name": "nginx-test-gke"}}}'
 spec:
   type: ClusterIP
   ports:
@@ -12,8 +11,4 @@ spec:
       targetPort: 80
   selector:
     app: {{ .Release.Name }}-nginx
-  defaultBackend:
-    service:
-      name: service-nginx # Name of the Service targeted by the Ingress
-      port:
-        number: 80 # Should match the port used by the Service
+
