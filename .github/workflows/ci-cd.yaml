@@ -44,7 +44,7 @@ jobs:
       - name: Update nginx-deployment.yaml with new version
         run: |
           sed -i "s|tag: .*|tag: "v${{ env.new_version }}"|g" nginx-chart/values.yaml
-          sed -i "s|VERSION: .*|VERSION: "v${{ env.new_version }}" </p>|g" nginx-char/tindex.html
+          sed -i "s|VERSION: .*|VERSION: "v${{ env.new_version }}" </p>|g" nginx-chart/index.html
           cat values.yaml
 
       - name: Commit changes
