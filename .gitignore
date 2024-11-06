@@ -4,3 +4,4 @@ nginx-chart/templates/tests/test-connection.yaml
 nginx-chart/templates/_helpers.tpl
 commands.txt
 get_helm.sh
+github-actions-service-key.json
