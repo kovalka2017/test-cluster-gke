@@ -2,7 +2,7 @@ apiVersion: cloud.google.com/v1
 kind: BackendConfig
 metadata:
   name: backendconfig-nginx
-  namespace: nginx
+  namespace: {{ .Values.namespace }}
 spec:
   healthCheck:
     checkIntervalSec: 10
