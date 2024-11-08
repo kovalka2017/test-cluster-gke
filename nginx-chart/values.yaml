@@ -3,10 +3,10 @@ namespace: nginx
 nginx:
   replicaCount: 1
   image:
-    repository: nginx
+    repository: gcr.io/yarproject-041124/nginx-test-gke
     tag: v0.0.2
 
 busybox:
   image:
     repository: busybox
-    tag: v0.0.2
+    tag: latest

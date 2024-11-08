@@ -5,7 +5,6 @@ metadata:
   namespace: {{ .Values.namespace }}
   annotations: 
     cloud.google.com/neg: '{"exposed_ports": {"80": {"name": "nginx-test-gke"}}}'
-    cloud.google.com/backend-config: '{"default": "backendconfig-nginx"}'
 spec:
   type: NodePort
   ports:
