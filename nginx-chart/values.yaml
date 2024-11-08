@@ -4,9 +4,9 @@ nginx:
   replicaCount: 1
   image:
     repository: gcr.io/yarproject-041124/nginx-test-gke
-    tag: v0.0.2
+    tag: v0.0.3
 
 busybox:
   image:
     repository: busybox
-    tag: latest
+    tag: v0.0.3
