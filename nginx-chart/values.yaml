@@ -4,5 +4,5 @@ nginx:
   replicaCount: 1
   image:
     repository: gcr.io/yarproject-041124/nginx-test-gke
-    tag: v0.0.4
+    tag: v0.0.5
 
