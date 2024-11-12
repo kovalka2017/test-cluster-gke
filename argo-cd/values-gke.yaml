@@ -32,6 +32,27 @@ server:
       managedCertificate:
         create: false
 
+nginx:
+  enabled: true
+  service:
+    annotations:
+      cloud.google.com/neg: '{"ingress": true}'  # Enable NEG for NGINX service
+      cloud.google.com/backend-config: '{"ports": {"http":"service-nginx"}}'
+  ingress:
+    enabled: true
+    controller: gke
+    host: web.ttest.supplant.me  # Host for the NGINX app
+    gke:
+      backendConfig:
+        healthCheck:
+          checkIntervalSec: 30
+          timeoutSec: 5
+          healthyThreshold: 1
+          unhealthyThreshold: 2
+          type: HTTP
+          requestPath: /healthz
+          port: 80  # NGINX port
+
 # nginx:
 #   service:
 #     name: backendconfig-nginx # Unique name for the NGINX service

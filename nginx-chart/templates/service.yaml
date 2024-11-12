@@ -4,7 +4,7 @@ metadata:
   name: service-nginx
   namespace: {{ .Values.namespace }}
   annotations: 
-    cloud.google.com/neg: '{"ingress": true}'
+    cloud.google.com/neg: '{"ingress": true, "name": "nginx-test-gke"}'
     #cloud.google.com/neg: '{"exposed_ports": {"80": {"name": "nginx-test-gke"}}}'
     cloud.google.com/backend-config: '{"ports": {"http":"backendconfig-nginx"}}'
     # # cloud.google.com/neg: '{"exposed_ports": {"80": {"name": "nginx-test-gke"}}}'
