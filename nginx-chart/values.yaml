@@ -6,7 +6,3 @@ nginx:
     repository: gcr.io/yarproject-041124/nginx-test-gke
     tag: v0.0.3
 
-busybox:
-  image:
-    repository: busybox
-    tag: v0.0.3

@@ -3,9 +3,17 @@ kind: Ingress
 metadata:
   name: nginx-ingress
   namespace: {{ .Values.namespace }}
+  annotations:
+    cloud.google.com/backend-config: '{"ports": {"http":"backendconfig-nginx"}}'
 spec:
-  defaultBackend:
-    service:
-      name: service-nginx # Name of the Service targeted by the Ingress
-      port:
-        number: 80 # Should match the port used by the Service
+  rules:
+    - host: "web.ttest.supplant.me"  # Add your domain here
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-nginx  # Your NGINX service name
+                port:
+                  number: 80  # Port your service is exposing
